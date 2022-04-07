@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def rootRoute():
-    dishNames = ["Easy-chicken-tikka-masala",
-                 "Smoked-pulled-pork-recipe",
-                 "Crock-pot-ribs-slow-cooker-ribs",
-                 "Best-twice-baked-potatoes-recipe",
-                 "6-ingredient-lazy-day-chili"]
+    dishNames = ["Easy Chicken Tikka Masala",
+                 "Smoked Pulled Pork",
+                 "Crock Pot Ribs",
+                 "Best Twice Baked Potatoes",
+                 "6 Ingredient Lazy Day Chili"]
     return render_template('layout.html', my_var="HOME PAGE", dishNames = dishNames)
 
 @app.route("/dish/<dishName>")
@@ -23,7 +23,6 @@ def showDish(dishName):
             if row[0] == dishName:
                 dish = row
     return render_template('dish.html', dish_list=dishNames, dish=dish)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

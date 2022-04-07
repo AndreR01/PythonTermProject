@@ -42,7 +42,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dishes <b class="caret"></b></a>
           <ul class="dropdown-menu">
             {% for n in dish_list %}
-            <li><a href = "dish/{{loop.index}}">{{n}}</a></li>
+            <li><a href = "{{url_for('showDish', dishID = loop.index) }}">{{n}}</a></li>
             {% endfor %}
           </ul>
         </li>

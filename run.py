@@ -12,15 +12,15 @@ def rootRoute():
                  "6 Ingredient Lazy Day Chili"]
     return render_template('layout.html', my_var="HOME PAGE", dishNames = dishNames)
 
-@app.route("/dish/<dishName>")
-def showDish(dishName):
+@app.route("/dish/<dishID>")
+def showDish(dishID):
     dish = {}
     dishNames = []
     with open('dishes.csv', newline='') as csvfile:
         filereader = csv.reader(csvfile, delimiter=',', escapechar='\\')
-        for row in filereader:
+        for index, row in enumerate(filereader):
             dishNames.append(row[0])
-            if row[0] == dishName:
+            if index == dishID:
                 dish = row
     return render_template('dish.html', dish_list=dishNames, dish=dish)
 

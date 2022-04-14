@@ -9,7 +9,7 @@ def rootRoute():
                  "Smoked Pulled Pork",
                  "Crock Pot Ribs",
                  "Best Twice Baked Potatoes",
-                 "6 Ingredient Lazy Day Chili"]
+                 "Banana Breakfast Cookies"]
     return render_template('layout.html', my_var="HOME PAGE", dish_list=dishNames)
 
 @app.route("/dish/<dishID>")

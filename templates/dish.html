@@ -3,11 +3,21 @@
 {% extends "layout.html" %}
 {% block contents %}
 <h1>Dish:</h1>
-<h2>{{dish[0]}}</h2>
-<h3>{{dish[1]}}</h3>
-<img src = {{dish[2]}}>
-<h4>{{dish[3]}}</h4>
-<h4>{{dish[4]}}</h4>
+<h2>{{dish["recipeName"]}}</h2>
+<h3>{{dish["recipeDesc"]}}</h3>
+<img src = {{dish["recipeURL"]}}>
+<h4><ul >
+            {% for n in dish["recipeIngredients"] %}
+            <li>{{n}}</li>
+            {% endfor %}
+          </ul></h4>
+
+<h1>Instructions:</h1>
+<h4><ol >
+            {% for n in dish["recipeInstructions"] %}
+            <li>{{n}}</li>
+            {% endfor %}
+          </ol></h4>
 {% endblock %}
 </body>
 </html>

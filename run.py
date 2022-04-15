@@ -1,3 +1,4 @@
+import json
 import csv
 
 from flask import Flask, render_template
@@ -15,20 +16,37 @@ def rootRoute():
 @app.route("/dish/<dishID>")
 def showDish(dishID):
     dishID = int(dishID)
-    dish = {}
-    dishNames = []
+    filename = ""
     with open('dishes.csv', newline='') as csvfile:
         filereader = csv.reader(csvfile, delimiter=',', escapechar='\\')
         for index, row in enumerate(filereader):
-            dishNames.append(row[0])
             if (index+1) == dishID:
-                dish = row
-    return render_template('dish.html', dish_list=dishNames, dish=dish, image=dish[2], ingredients=dish[3], instructions=[4])
+                filename = row[1].strip()
+
+    #         dishNames.append(row[0])
+    #             dish = row
+    with open(filename, "r") as infile:
+        data = json.load(infile)
+        print(data["recipeName"])
+
+    return render_template('dish.html', dish=data,)
 
 #TODO Create home page content block
 #TODO Form to submit and delete recipes
 #
 
+def test_method():
+    test_dict = {"Hello": "World!"}
+
+    with open("test.json", "w") as outfile:
+        json.dump(test_dict, outfile)
+
+    with open("chickenTikka.json", "r") as infile:
+        data = json.load(infile)
+        print(data["recipeName"])
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+

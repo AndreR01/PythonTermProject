@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flask Template Example</title>
+    <title>20179020 Python Term Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+      <!-- CHANGED THE PADDING AND WIDTH FROM 500 & 100 -->
+
     <style type="text/css">
       .container {
-        max-width: 500px;
-        padding-top: 100px;
+        max-width: 600px;
+        padding-top: 0px;
       }
       h2 {color: black;}
+      <!-- ADDED CODE TO KEEP THE NAVBAR AT THE TOP -->
+<!--    body {margin:0;}-->
+
+<!--    .navbar {-->
+<!--      overflow: hidden;-->
+<!--      background-color: #333;-->
+<!--      position: fixed;-->
+<!--      top: 0;-->
+<!--      width: 100%;-->
+<!--    }-->
+
+<!--    .navbar a {-->
+<!--      float: left;-->
+<!--      display: block;-->
+<!--      color: #f2f2f2;-->
+<!--      text-align: center;-->
+<!--      padding: 14px 16px;-->
+<!--      text-decoration: none;-->
+<!--      font-size: 17px;-->
+<!--    }-->
+
+<!--    .navbar a:hover {-->
+<!--      background: #ddd;-->
+<!--      color: black;-->
+<!--    }-->
+
+<!--    .main {-->
+<!--      padding: 16px;-->
+<!--      margin-top: 30px;-->
+<!--      height: 1500px; /* Used in this example to enable scrolling */-->
+<!--    }-->
     </style>
   </head>
   <body>
@@ -40,12 +74,14 @@
   </div><!-- /.container-fluid -->
 </nav>
     <div class="container">
-      <img src = https://media.istockphoto.com/photos/healthy-eating-selection-of-antioxidant-group-of-food-picture-id1182477416>
-      <h2>Lachlan and Georgia, you need to go and read a book, then go to bed. Now!!</h2>
+      <img src = https://media.istockphoto.com/vectors/capelin-vector-vector-id522886333?k=20&m=522886333&s=170667a&w=0&h=9EZMhLkq63loDXi0xR2tiWkpzJgOcKQ7EvUT1fgMu68=>
+      <h1><center>Capelin Capers</center></h1>
+      <h3><center>Welcome to Capelin Capers. A source of recipes for those who roll with it.</center></h3>
       <br>
       {% block contents %}{% endblock %}
       <br>
-      <h2>This is part of my base template</h2>
+      <h2> add base template text here</h2>
+      <img src = https://media.istockphoto.com/vectors/capelin-vector-vector-id522886333?k=20&m=522886333&s=170667a&w=0&h=9EZMhLkq63loDXi0xR2tiWkpzJgOcKQ7EvUT1fgMu68=>
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

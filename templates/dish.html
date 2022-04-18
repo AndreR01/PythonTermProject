@@ -2,10 +2,11 @@
 
 {% extends "layout.html" %}
 {% block contents %}
-<h1>Dish:</h1>
+<!-- <h1>Dish:</h1>    -->
 <h2>{{dish["recipeName"]}}</h2>
 <h3>{{dish["recipeDesc"]}}</h3>
 <img src = {{dish["recipeURL"]}}>
+<h1>Ingredients:</h1>
 <h4><ul>
             {% for n in dish["recipeIngredients"] %}
             <li>{{n}}</li>

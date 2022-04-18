@@ -1,15 +1,28 @@
 {
   "recipeName": "Crock Pot Ribs",
-  "recipeDesc": "This easy chicken tikka masala recipe is a weeknight staple!",
+  "recipeDesc": "The easiest most delicious pork ribs for any occasion.",
   "recipeServeSize": "Serves 3-4",
   "recipeURL": "https://www.thecookierookie.com/wp-content/uploads/2020/12/crockpot-ribs-step-by-step-process-shots-650x1365.jpg",
   "recipeIngredients": [
-    "Crock pot ribs"
+    "3 tablespoons smoked paprika or paprika",
+    "3 tablespoons packed light brown sugar",
+    "1 tablespoon kosher salt",
+    "1 tablespoon ground black pepper",
+    "0.5 teaspoon crushed red pepper flakes",
+    "6 pounds St. Louis-style pork spareribs or Baby Back ribs",
+    "24 ounce jar Barbecue Sauce",
+    "0.25 cup cider vinegar if the barbecue sauce is on the sweet side"
   ],
   "recipeInstructions": [
-    "Crock pot ribs",
-    "Pre-heat oven to 350F",
-    "Mash all bananas",
-    "Add pinch of salt"
+    "Set the slow cooker to LOW and spray with nonstick cooking spray. (I always spray the underside of the lid to help with cleanup.)",
+    "Remove the silver membrane from the back of the ribs. Here's a video with instructions. (You might have bought ribs with the membrane removed, and if so, skip this step.)",
+    "In a small bowl, whisk together the paprika, brown sugar, salt, black pepper and red pepper flakes. Rub the dry-rub mix evenly over the ribs.",
+    "Brush both sides of the rib with barbecue sauce and set the ribs in the slow cooker standing upright with the meaty side against the inside wall, of the slow cooker.",
+    "Pour the remaining barbecue sauce over the ribs. If using a sweet sauce, pour the cider vinegar over the ribs.",
+    "Cover and cook on LOW 5-6 hours or until the meat is fork-tender.",
+    "Serve with additional store-bought barbecue sauce or strain the juices, from the pan, through a fine-mesh strainer into a medium saucepan.",
+    "Bring the sauce to a boil, reduce the heat to low and simmer 15-20 minutes or until the mixture has reduced to 2 cups.",
+    "To serve, slice the meat between the bones and serve with barbecue sauce.",
+    "Enjoy!"
   ]
 }

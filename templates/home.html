@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block contents %}
+<ul>
+
+{% for n in dish_list %}
+<li><a href="{{url_for('showDish', dishID = loop.index) }}">{{n}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

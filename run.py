@@ -1,60 +1,97 @@
 import json
 import csv
+import os
 
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
+def getExistingDishes():
+    dishes = []
+    with open('dishes.csv', newline='') as csvfile:
+        filereader = csv.reader(csvfile, delimiter=',', escapechar='\\')
+        for index, row in enumerate(filereader):
+            dishes.append((row[0].strip(), row[1].strip()))
+    return dishes
+
+def deleteDish(indexToDelete):
+    indexToDelete = int(indexToDelete)
+    currentDishes = getExistingDishes()
+    fileToDelete = ""
+    with open("dishes.csv", "w") as f:
+        for index, row in enumerate(currentDishes):
+            if index != indexToDelete:
+                #DANGER ZONE!
+                #os.remove(row[1])
+                f.write(row[0] + ", " + row[1] + "\n")
+
+def getDishNames():
+    dishNames = []
+    for i in getExistingDishes():
+        dishNames.append(i[0])
+    return dishNames;
+
 @app.route("/")
 def rootRoute():
-    dishNames = ["Easy Chicken Tikka Masala",
-                 "Smoked Pulled Pork",
-                 "Crock Pot Ribs",
-                 "Best Twice Baked Potatoes",
-                 "Banana Breakfast Cookies"]
-    return render_template('layout.html', my_var="HOME PAGE", dish_list=dishNames)
+
+    return render_template('home.html', my_var="HOME PAGE", dish_list=getDishNames())
 
 
 @app.route("/dish/<dishID>")
 def showDish(dishID):
     dishID = int(dishID)
     filename = ""
-    with open('dishes.csv', newline='') as csvfile:
-        filereader = csv.reader(csvfile, delimiter=',', escapechar='\\')
-        for index, row in enumerate(filereader):
-            if (index + 1) == dishID:
-                filename = row[1].strip()
 
-    #         dishNames.append(row[0])
-    #             dish = row
+    for index, row in enumerate(getExistingDishes()):
+        if (index + 1) == dishID:
+            filename = row[1].strip()
+
+
+#         dishNames.append(row[0])
+#             dish = row
     with open(filename, "r") as infile:
         data = json.load(infile)
         print(data["recipeName"])
 
-    return render_template('dish.html', dish=data, )
+    return render_template('dish.html', dish=data, dish_list=getDishNames())
+
+@app.route('/delete')
+def delete():
+    dishes = getExistingDishes()
+
+    return render_template('delete.html', dishes = dishes, dish_list=getDishNames())
+
+
+@app.route('/handle_delete', methods=['POST'])
+def handle_delete():
+    deleteIndex = request.form['recipeDelete']
+    deleteDish(deleteIndex)
+    return rootRoute()
 
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    filename = "newRecipe.json"
-    recipeName = request.form['recipeName']
+    recipeName = request.form["recipeName"]
+    filename = recipeName.replace(" ", "") + ".json";
     if len(recipeName) < 6:
-          return render_template('uploadError.html')
+        return render_template('uploadError.html')
     userRecipe = {"recipeName": (recipeName),
-                  "recipeDesc": (request.form['recipeDesc']),
+                  "recipeDesc": (request.form["recipeDesc"]),
+                  "recipeServeSize": (request.form["recipeServeSize"]),
+                  "recipeURL": (request.form["recipeURL"])
 
                   }
+    with open("dishes.csv", "a") as csvFile:
+        csvFile.write(recipeName + ", " + filename + "\n")
     with open(filename, "w") as infile:
         json.dump(userRecipe, infile)
     return rootRoute()
 
+
 @app.route("/upload")
 def upload_recipe():
-    return render_template('formsubmit.html')
-
-
-
+    return render_template('formsubmit.html', dish_list=getDishNames())
 
 
 # TODO Create home page content block

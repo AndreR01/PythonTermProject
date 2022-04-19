@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block contents %}
+<script type="text/javascript">
+function validateForm(){
+    var ele = document.getElementsByName('recipeDelete');
+    var hasOne = -1;
+    for(i = 0; i < ele.length; i++) {
+        if(ele[i].checked){
+            hasOne = i;
+        }
+    }
+    return hasOne != -1;
+}
+</script>
+<form id="recipeDelete" class="form-horizontal" action="{{ url_for('handle_delete') }}" method="post" onsubmit="return validateForm()">
+<fieldset>
+
+<!-- Form Name -->
+<h1>Select Dish to Delete:</h1>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeDelete"></label>
+        <div class="col-md-4">
+            {% for n in dishes %}
+            <label class="radio-inline" for="recipies-{{loop.index-1}}">
+                <input type="radio" name="recipeDelete" id="recipies-{{loop.index-1}}" value="{{loop.index-1}}" checked="unchecked">
+                {{n[0]}}
+            </label>
+
+            {% endfor %}
+
+        </div>
+    </div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitButton">Delete Selected</label>
+  <div class="col-md-4">
+    <button id="submitButton" name="submitButton" class="btn btn-danger">Delete</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}

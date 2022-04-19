@@ -10,37 +10,58 @@
     return false;}
   return true;
   }
+
 </script>
-<form id="recipeForm" class="form-horizontal" action="{{ url_for('handle_data') }}" method="post" onsubmit="return validateForm()">
-<fieldset>
+<form id="recipeForm" class="form-horizontal" action="{{ url_for('handle_data') }}" method="post"
+      onsubmit="return validateForm()">
+    <fieldset>
 
-<!-- Form Name -->
-<legend>Submit recipe</legend>
+        <!-- Form Name -->
+        <legend>Submit recipe</legend>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="recipeName">Name</label>
-  <div class="col-md-4">
-  <input id="recipeName" name="recipeName" type="text" placeholder="Enter the dish name here" class="form-control input-md" required="">
-  </div>
-</div>
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="recipeDesc">Description</label>
-  <div class="col-md-4">
-    <textarea class="form-control" id="recipeDesc" name="recipeDesc">Tell us about this dish</textarea>
-  </div>
-</div>
+        <!-- Text input: Recipe Name-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="recipeName">Name</label>
+            <div class="col-md-4">
+                <input id="recipeName" name="recipeName" type="text" placeholder="Enter the dish name"
+                       class="form-control input-md" required="">
+            </div>
+        </div>
+        <!-- Textarea: Recipe Description -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="recipeDesc">Description</label>
+            <div class="col-md-6">
+                <textarea class="form-control" id="recipeDesc" name="recipeDesc">Tell us about this dish</textarea>
+            </div>
+        </div>
 
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submitButton">Upload your recipe</label>
-  <div class="col-md-4">
-    <button id="submitButton" name="submitButton" class="btn btn-primary">Submit</button>
-  </div>
-</div>
+        <!-- Text input: Serving Size-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="recipeServeSize">Serving size</label>
+            <div class="col-md-4">
+                <input id="recipeServeSize" name="recipeServeSize" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Text input: picture url-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="recipeURL">URL link for picture</label>
+            <div class="col-md-4">
+                <input id="recipeURL" name="recipeURL" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
 
 
-</fieldset>
+
+        <!-- Button: Submit -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="submitButton">Upload your recipe</label>
+            <div class="col-md-4">
+                <button id="submitButton" name="submitButton" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+
+    </fieldset>
 </form>
 {% endblock %}

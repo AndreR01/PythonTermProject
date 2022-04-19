@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+{% extends "layout.html" %}
+{% block contents %}
+<script type="text/javascript">
+  function validateForm() {
+  let x = document.forms["recipeForm"]["recipeName"].value;
+  alert (x);
+  if (x.length < 5){
+    return false;}
+  return true;
+  }
+</script>
+<form id="recipeForm" class="form-horizontal" action="{{ url_for('handle_data') }}" method="post" onsubmit="return validateForm()">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Submit recipe</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="recipeName">Name</label>
+  <div class="col-md-4">
+  <input id="recipeName" name="recipeName" type="text" placeholder="Enter the dish name here" class="form-control input-md" required="">
+  </div>
+</div>
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="recipeDesc">Description</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="recipeDesc" name="recipeDesc">Tell us about this dish</textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitButton">Upload your recipe</label>
+  <div class="col-md-4">
+    <button id="submitButton" name="submitButton" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+
+</fieldset>
+</form>
+{% endblock %}

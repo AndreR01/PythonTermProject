@@ -79,7 +79,9 @@ def handle_data():
     userRecipe = {"recipeName": (recipeName),
                   "recipeDesc": (request.form["recipeDesc"]),
                   "recipeServeSize": (request.form["recipeServeSize"]),
-                  "recipeURL": (request.form["recipeURL"])
+                  "recipeURL": (request.form["recipeURL"]),
+                  "recipeIngredients": (request.form["recipeIngredients"]),
+                  "recipeInstructions": (request.form["recipeInstructions"])
 
                   }
     with open("dishes.csv", "a") as csvFile:
@@ -93,10 +95,6 @@ def handle_data():
 def upload_recipe():
     return render_template('formsubmit.html', dish_list=getDishNames())
 
-
-# TODO Create home page content block
-# TODO Form to submit and delete recipes
-#
 
 def test_method():
     dict_var = "World!"
